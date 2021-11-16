@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Node js upload/Import excel file to MySQL database</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+      <h1>Node js upload file</h1>
+
+      <form action="/upload" enctype="multipart/form-data" method="post">
+
+          <label for="">Title</label><br>
+          <input type="text" name="title" id="title" placeholder="Title..."><br>
+          <label for="">Description</label><br>
+          <textarea type="textarea" name="descrpt" id="descrpt" placeholder="Description..."></textarea><br>
+          <input type="file" name="file" accept='application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword, application/pdf, application/vnd.ms-excel, video/mp4,video/x-m4v,video/*' >
+          <input type="submit" value="Đăng tải">
+      </form>
+
+      <% for(let i =0; i< documents.length; i++){ %>
+          <a href= <%= documents[i].dataValues.path %>  target="_blank"> tai lieu</a> 
+      <% } %>
+        
+    </body>
+    
+    
+
+</html>
