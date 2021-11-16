@@ -259,7 +259,6 @@ div.file_path a {
 }
 
 div.button_container {
-	display: block;
 	margin: 5px;
 	height: 30px;
 	float: left;
@@ -278,7 +277,7 @@ div.button_container {
 	background-color: white;
 }
 
-.nodisplay {
+div.nodisplay {
 	display: none;
 }
 
