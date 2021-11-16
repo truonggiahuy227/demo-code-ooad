@@ -85,9 +85,9 @@ const documentUpload = multer({
     storage: documentStorage,
     fileFilter(req, file, cb) {
       // upload only mp4 and mkv format
-      if (!file.originalname.match(/\.(pdf|docx|mp4|MPEG-4|mkv)$/)) { 
+      if (!file.originalname.match(/\.(pdf|docx|mp4|MPEG-4|mkv|pptx|ppt)$/)) { 
             //return cb(new Error('Please upload a pdf or word'))
-            cb("Please upload video, pdf, word.", false);
+            cb("Please upload video, pdf, word, powerpoint or excel.", false);
       }else{
             cb(null, true)
       }

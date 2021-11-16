@@ -8,6 +8,7 @@ const upload = async (req, res) => {
     let documentPath = '../assets/upload/' + req.file.filename;
     const document = await Document.create({
         lecturerId : 1,
+        title: req.file.filename,
         type: path.extname(req.file.filename),
         path: documentPath,
     });

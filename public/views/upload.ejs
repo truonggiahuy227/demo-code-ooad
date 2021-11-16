@@ -1,29 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-      <title>Node js upload/Import excel file to MySQL database</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-      <h1>Node js upload file</h1>
-
-      <form action="/upload" enctype="multipart/form-data" method="post">
-
-          <label for="">Title</label><br>
-          <input type="text" name="title" id="title" placeholder="Title..."><br>
-          <label for="">Description</label><br>
-          <textarea type="textarea" name="descrpt" id="descrpt" placeholder="Description..."></textarea><br>
-          <input type="file" name="file" accept='application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword, application/pdf, application/vnd.ms-excel, video/mp4,video/x-m4v,video/*' >
-          <input type="submit" value="Đăng tải">
-      </form>
-
-      <% for(let i =0; i< documents.length; i++){ %>
-          <a href= <%= documents[i].dataValues.path %>  target="_blank"> tai lieu</a> 
-      <% } %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Study Forum</title>
+<meta http-equiv="content-language" content="en-us" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="start" title="Home" href="http://www.sixpence.com/" />
+<link rel="stylesheet" type="text/css" media="screen" href="screen.css" />
+<link rel="stylesheet" href="/views/screen.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--[if lt ie 7]><link rel="stylesheet" type="text/css" media="screen" href="ie-win.css" /><![endif]-->
+</head>
+<body id="babout">
+<div id="header">
+  
+  <h1>Study Forum</h1>
+  
+</div>
+<div id="navigation">
+  <ul>
+    <li id="lhome"><a href="/">Home</a></li>
+    <li id="lquestion"><a href="#01">Questions</a></li>
+    <li id="lforum"><a href="#02">Forum</a></li>
+    <li id="ldocument"><a href="document_screen.html">Document</a></li>
+  </ul>
+  <div class="container">
+    <a href="#04">Login</a>
+  </div>
+</div>
+<div id="wrapper">
+  <div id="content-wrapper">
+    <div id="content">
+      <h4>Documents in this course</h4>
+      <dl>
         
-    </body>
-    
-    
+        <% for(let i =0; i< documents.length; i++){ %>
+          <div class="file_path">
+              <a href= <%= documents[i].dataValues.path %>  target="_blank">  <%= documents[i].dataValues.title %></a> 
+          </div>
+        <% } %>
+      
+      </dl>
+    </div>
+  </div>
+  <div id="sidebar-wraper">
+    <div id="sidebar">
+      <div class="button_container">
+        <input type="button" id="upload_btn" value="Upload">  
+      </div>
+      <div class="button_container nodisplay">
+        <input type="reset" id="close_btn" value="Close">
+      </div>
+      <br>
+      <br>
+      <br>
 
+      <div id="upform" class="upload_form nodisplay">
+        <form action="/upload" enctype="multipart/form-data" method="post">
+            <div class="row">
+                <label class="label-control" for="title">Title:</label>
+                <input type="text" id="title">   
+              </div>
+              <div class="row">
+                <label class="label-control" for="description">Description:</label>
+                <input type="textarea" id="description">
+              </div>
+              <div class="row">
+                <input type="file" name="file" accept='application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword, application/pdf, application/vnd.ms-excel, video/mp4,video/x-m4v,video/*, application/vnd.ms-powerpoint,
+                text/plain' >
+                <input type="submit" value="Đăng tải">
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"> 
+  $(document).ready(function() {
+    $("#upload_btn").click(function() {
+      $("#upform").removeClass("nodisplay");
+      $("#close_btn").parent(".button_container").removeClass("nodisplay");
+    });
+
+    $("#close_btn").click(function() {
+      $("#close_btn").parent(".button_container").addClass("nodisplay");
+      $("#upform").addClass("nodisplay");
+      $("#title").val('');
+      $("#description").val('');
+      $("#choose_file").val('');
+    });
+
+    // $("#submit").click(function() {
+    //   $("#title").val('');
+    //   $("#description").val('');
+    //   $("#choose_file").val('');
+    // });
+  });
+</script>
+</body>
 </html>

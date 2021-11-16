@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/public/assets/upload'));
 
 app.get('/', (req, res) => { 
-    res.send('Hello People'); 
+    res.render('home'); 
 });
 
 app.get("/upload", controller.getDocument)
