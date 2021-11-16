@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Study Forum</title>
+<meta http-equiv="content-language" content="en-us" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="start" title="Home" href="http://www.sixpence.com/" />
+<link rel="stylesheet" type="text/css" media="screen" href="screen.css" />
+<!--[if lt ie 7]><link rel="stylesheet" type="text/css" media="screen" href="ie-win.css" /><![endif]-->
+</head>
+<body id="babout">
+<div id="header">
+  
+  <h1>Study Forum</h1>
+  
+</div>
+<div id="navigation">
+  <ul>
+    <li id="lhome"><a href="index.html">Home</a></li>
+    <li id="lquestion"><a href="#01">Questions</a></li>
+    <li id="lforum"><a href="#02">Forum</a></li>
+    <li id="ldocument"><a href="document_screen.html">Document</a></li>
+  </ul>
+  <div class="container">
+    <a href="#04">Login</a>
+  </div>
+</div>
+<div id="wrapper">
+  <div id="content-wrapper">
+    <div id="content">
+      <h4>Documents in this course</h4>
+      <dl>
+        <div class="file_path">
+          <a href="#00">Brief 01.pdf</a> <br>
+        </div>
+        <div class="file_path">
+          <a href="#01">Brief.pdf</a>  
+        </div>
+        <div class="file_path">
+          <a href="#02">Detail.pdf</a>
+        </div>
+        <div class="file_path">
+          <a href="#03">Assignment 3.pdf</a>
+        </div>
+        <div class="file_path">
+          <a href="#04">Project.docx</a>
+        </div>
+      </dl>
+    </div>
+  </div>
+  <div id="sidebar-wraper">
+    <div id="sidebar">
+      <div class="button_container">
+        <input type="button" id="upload_btn" value="Upload">  
+      </div>
+      <div class="button_container nodisplay">
+        <input type="button" id="close" value="close">
+      </div>
+      <br>
+      <br>
+      <br>
+      <div id="upform" class="upload_form nodisplay">
+        <div class="row">
+          <label class="label-control" for="title">Title:</label>
+          <input type="text" id="title">   
+        </div>
+        <div class="row">
+          <label class="label-control" for="description">Description:</label>
+          <input type="textarea" id="description">
+        </div>
+        <div class="row">
+          <input type="file" name="file" accept='application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword, application/pdf, application/vnd.ms-excel, video/mp4,video/x-m4v,video/*' >
+          <input type="button" id="submit" value="Submit">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var upload_btn = document.getElementById("upload_btn");
+  upload_btn.onclick = function() {
+    var upload_form = document.getElementById("upform");
+    upload_form.classList.remove("nodisplay");
+  }
+</script>
+</body>
+</html>
